@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { ProductResponse } from "@/lib/type/product"
+import Image from "next/image"
 
 export function ProductCard({
     images,
@@ -17,12 +18,14 @@ export function ProductCard({
     price=2,
 }: ProductResponse) {
   return (
-    <Card className="relative mx-auto w-full max-w-sm pt-0">
-      <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
-      <img
+    <Card className="relative mx-auto w-full max-w-sm pt-0 overflow-hidden">
+      {/* <div className="absolute inset-0 z-30 aspect-video bg-black/35" /> */}
+      <Image
         src={images[0]}
         alt="Event cover"
-        className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
+        width={200}
+        height={200}
+        className="relative z-20 aspect-5/3 w-full object-cover brightness-60 grayscale dark:brightness-40"
       />
       <CardHeader>
         <CardAction>
